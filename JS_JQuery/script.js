@@ -1,31 +1,31 @@
 
 // upper output is for showing value
 
-let outputUpper = document.querySelector('#upper');
+let oneUpper = document.querySelector('#upper');
 // lower output is for showing the result
-let outputLower = document.querySelector('#lower');
+let oneLower = document.querySelector('#lower');
 
 // function to get number input
 function pressNum(e) {
-  if (outputLower.innerHTML === '0') {
-    outputLower.innerHTML = e.innerHTML;
+  if (oneLower.innerHTML === '0') {
+    oneLower.innerHTML = e.innerHTML;
   } else {
-    outputLower.innerHTML += e.innerHTML;
+    oneLower.innerHTML += e.innerHTML;
   }
 }
 
 // clear all
 function pressAllClear() {
-  outputUpper.innerHTML = '';
-  outputLower.innerHTML = '0';
+  oneUpper.innerHTML = '';
+  oneLower.innerHTML = '0';
 }
 
 
 
 // calculate button
 function pressEqual() {
-  let exp = outputLower.innerHTML;
-  outputUpper.innerHTML = exp;
+  let exp = oneLower.innerHTML;
+  oneUpper.innerHTML = exp;
   exp = exp.replace(/×/g, '*').replace(/÷/g, '/');
   let result;
   try {
@@ -37,25 +37,25 @@ function pressEqual() {
   } catch (e) {
     result = 'Error';
   }
-  outputLower.innerHTML = result;
+  oneLower.innerHTML = result;
 }
 
 function pressOperator(e) {
   // check last operator
-  let lastOperator = outputLower.innerHTML.slice(-1);
+  let lastOperator = oneLower.innerHTML.slice(-1);
   if (lastOperator.includes('+', '-', '×', '÷')) {
-    output.innerHTML = outputLower.innerHTML.slice(0, -1) + e.innerHTML;
+    one.innerHTML = oneLower.innerHTML.slice(0, -1) + e.innerHTML;
   } else {
-    outputLower.innerHTML += e.innerHTML;
+    oneLower.innerHTML += e.innerHTML;
   }
 }
 
 function pressDot() {
-  outputLower.innerHTML += '.';
+  oneLower.innerHTML += '.';
 }
 
 function pressBracket(e) {
-  outputLower.innerHTML += e.innerHTML;
+  oneLower.innerHTML += e.innerHTML;
 }
 
 // attach keyboard event
